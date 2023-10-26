@@ -1,6 +1,6 @@
 # Sketchy Project
 
-Welcome to the Sketchy Project, my personal endeavor created for a KPU university web development class. This web application, built with Astro, is a testament to my growth and skills in web development. It features a blog where I share my experiences, insights about the classes I've taken at the university, and a section dedicated to information about myself.
+Welcome to the **Sketchy Project**, my personal endeavor created for a KPU university web development class. This web application, built with Astro, is a testament to my growth and skills in web development. It features a blog where I share my experiences, insights about the classes I've taken at the university, and a section dedicated to information about myself.
 
 ## Quick Start
 
