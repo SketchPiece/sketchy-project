@@ -1,0 +1,39 @@
+---
+import MainLayout from "./MainLayout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+const { title, pubDate, heroImage, slug } = Astro.props;
+---
+
+<MainLayout>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"
+  ></script>
+  <main>
+    <article>
+      <h1
+        class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left"
+      >
+        {title}
+      </h1>
+      <div class="mb-8 md:mb-16 sm:mx-0">
+        <img
+          src={heroImage}
+          alt={`Cover Image for ${title}`}
+          class="shadow-sm w-full h-96 object-cover"
+          transition:name={slug}
+        />
+      </div>
+      <div class="max-w-2xl mx-auto">
+        <div class="mb-6 text-lg">
+          <FormattedDate date={pubDate} />
+        </div>
+      </div>
+
+      <div class="max-w-2xl mx-auto mb-10">
+        <div class="prose">
+          <slot />
+        </div>
+      </div>
+    </article>
+  </main>
+</MainLayout>

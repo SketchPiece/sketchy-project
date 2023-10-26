@@ -1,0 +1,77 @@
+---
+import Title from "../components/Title.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+const courses = [
+  {
+    title: "Business Mathematics",
+    code: "BUQU 1130",
+    description:
+      "Students will learn methods, procedures and applications of business mathematics, including the mathematics of merchandising, simple interest, and compound interest.",
+  },
+  {
+    title: "Introduction to Formal Logic",
+    code: "PHIL 1150",
+    description:
+      "Students will study the basic techniques of formal deductive logic. They will learn the semantics and syntax of two artificial languages-sentential logic (SL) and predicate logic (PL)-with emphasis given to the former.",
+  },
+  {
+    title: "Introduction to Professional Communication",
+    code: "CMNS 1140",
+    description:
+      "Students will learn how to analyze context and audience, determine purpose, message content, visual design and media in order to create written workplace messages that can be received, understood, used and retrieved with speed and accuracy.",
+  },
+  {
+    title: "Systems Analysis and Designs",
+    code: "INFO 1112",
+    description:
+      "Students will study current strategies, methodologies and techniques of systems analysis and design with an emphasis on the role of systems analysts in an organization and collaboration within the overall process.",
+  },
+  {
+    title: "Principles of Program Structure and Design I",
+    code: "INFO 1113",
+    description:
+      "Students will learn the fundamental concepts and structure of computer programs. They will develop skills in different aspects of the problem-solving and programming process",
+  },
+  {
+    title: "Introduction to Computer Hardware and Software",
+    code: "INFO 1111",
+    description:
+      "Students will learn general computer hardware and software concepts. They will study the general architecture of the computer and examine hardware components",
+  },
+  {
+    title: "Operating Systems Principles and Applications",
+    code: "INFO 1211",
+    description:
+      "Students will learn the fundamentals of operating systems and system utilities. They will study principles such as operating system architecture, input/output systems, file systems, process management and thread management.",
+  },
+  {
+    title: "Web Application Development",
+    code: "INFO 1213",
+    description:
+      "Students will learn the operating principles of the World Wide Web and its relationship with the Internet. They will learn the client-server model, Internet protocols, domain names and URLs, websites, and Web hosting.",
+  },
+  {
+    title: "Discrete Mathematics for Information Technology",
+    code: "INFO 1214",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis aliquam, a officia ipsam eaque distinctio asperiores molestias magni quidem nulla incidunt placeat repudiandae, autem at animi reiciendis aspernatur! Facilis, recusandae.",
+  },
+];
+---
+
+<MainLayout>
+  <Title>There's the courses I took in KPU</Title>
+  <section class="py-10">
+    <ul class="grid grid-cols-3 gap-10">
+      {
+        courses.map((course) => (
+          <li class="hover:drop-shadow-2xl hover:-translate-y-2 transition-all">
+            <h3 class="font-bold text-2xl">{course.title}</h3>
+            <p class="text-sm">{course.code}</p>
+            <p class="mt-5">{course.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</MainLayout>

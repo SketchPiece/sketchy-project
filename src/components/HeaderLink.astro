@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { cn } from "../lib/utils";
+
+type Props = HTMLAttributes<"a">;
+
+const { href, class: className, ...props } = Astro.props;
+
+const { pathname } = Astro.url;
+const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+---
+
+<a
+  href={href}
+  class={cn("font-bold hover:underline text-lg", isActive && "underline")}
+  {...props}
+>
+  {isActive && ">"}
+  <slot />
+</a>

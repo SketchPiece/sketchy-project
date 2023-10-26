@@ -1,0 +1,36 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Title from "../../components/Title.astro";
+import PostPreview from "../../components/PostPreview.astro";
+import type { Code, Debug } from "astro:components";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<MainLayout>
+  <Title>Here's my Blog</Title>
+  <main>
+    <section class="my-5">
+      <ul class="grid grid-cols-2 gap-10">
+        {
+          posts.map((post) => (
+            <PostPreview
+              title={post.data.title}
+              excerpt={post.data.excerpt}
+              slug={post.slug}
+              pubDate={post.data.pubDate}
+              heroImage={post.data.heroImage}
+            />
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</MainLayout>
